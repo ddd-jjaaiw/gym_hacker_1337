@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Code 1337 - Registration</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background-color: #f7f7f7;
+        }
+        .registration-container {
+            margin-top: 100px;
+            max-width: 400px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .registration-title {
+            color: #ff0000; /* Red color */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn-custom {
+            background-color: #28a745; /* Green color */
+            color: #fff;
+        }
+        .btn-custom:hover {
+            background-color: #218838;
+        }
+        .link-custom {
+            color: #ff0000; /* Red color */
+            text-align: center;
+            display: block;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="registration-container mx-auto">
+            <h2 class="registration-title">Gym Code 1337 - Registration</h2>
+
+            <!-- Jinja2 Template for Form Action -->
+            <form action="{{ url_for('register') }}" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Create a password" required>
+                </div>
+                <button type="submit" class="btn btn-custom btn-block">Sign Up</button>
+
+                <!-- Jinja2 Template for Login Route -->
+                <a href="{{ url_for('login') }}" class="link-custom">Already have an account? Login</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

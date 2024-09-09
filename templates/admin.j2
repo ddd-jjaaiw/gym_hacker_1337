@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gym Code 1337 - Admin Panel</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background-color: #f7f7f7;
+        }
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            width: 200px;
+            background-color: #28a745; /* Green color */
+            padding-top: 20px;
+        }
+        .sidebar a {
+            color: #ffffff;
+            padding: 15px;
+            display: block;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #218838;
+            text-decoration: none;
+        }
+        .main-content {
+            margin-left: 200px; /* Same as the width of the sidebar */
+            padding: 20px;
+        }
+        .navbar {
+            background-color: #ff0000; /* Red color */
+        }
+        .navbar-brand {
+            color: #ffffff;
+        }
+        .navbar-brand:hover {
+            color: #f8f9fa;
+        }
+        .card-header {
+            background-color: #28a745; /* Green color */
+            color: #ffffff;
+        }
+        .table th {
+            background-color: #28a745; /* Green color */
+            color: #ffffff;
+        }
+        .btn-custom {
+            background-color: #ff0000; /* Red color */
+            color: #ffffff;
+        }
+        .btn-custom:hover {
+            background-color: #dc3545;
+            color: #ffffff;
+        }
+        .debug-box {
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 15px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            height: 200px;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Admin Panel</a>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#">Dashboard</a>
+        <a href="#">Manage Users</a>
+        <a href="#">Manage Posts</a>
+        <a href="#">Manage Comments</a>
+        <a href="#">Logout</a>
+    </div>
+
+    <div class="main-content">
+        <!-- Dashboard Section -->
+        <h2>Welcome, {{ name }}!</h2>
+        <p>Use the sidebar to navigate through the admin panel.</p>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                Manage Users
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.role }}</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="#" class="btn btn-custom">Add New User</a>
+            </div>
+        </div>
+
+        <!-- Debug Box Section -->
+        <div class="card mt-4">
+            <div class="card-header">
+                Debug Box
+            </div>
+            <div class="card-body">
+                <div id="debugBox" class=" debug-box">
+                    <!-- Placeholder for Dynamic Debug Logs -->
+                    <pre>{{ debug }}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
