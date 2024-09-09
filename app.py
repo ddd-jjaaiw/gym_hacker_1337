@@ -105,8 +105,8 @@ with app.app_context():
     db.create_all()
     try:
         db.session.add(User(name="admin",
-                        email="admin@gymcode.com",
-                        password=bcrypt.generate_password_hash("wLrv0Zf35DxF7Tq9z3oieVZBXOknR1rV").decode('utf-8'), secret=uuid.uuid4().hex,is_admin=True))
+                        email="mail@mail.com",
+                        password=bcrypt.generate_password_hash("admin_password_here").decode('utf-8'), secret=uuid.uuid4().hex,is_admin=True))
         db.session.commit()
     except Exception as e:
         print(e)
